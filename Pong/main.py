@@ -4,6 +4,12 @@ from pygame.locals import *
 pygame.init()
 pygame.mixer.init()  # Used for sounds
 
+# Controls are W & S for player one, O & L for player two.
+# 
+# collider glitches occasionally
+# 
+# Sound effects and random elements into ball spawn and paddle bounce direction would be improvements
+
 # Declare all variables etc
 font = pygame.font.SysFont(None, 48)
 playerOneScore = 0
@@ -26,9 +32,9 @@ paddleWidth = 10
 
 # ball variables
 ballRadius = 10
-ballX = 400.0
+ballX = 400.0       # position
 ballY = 300.0
-ballMoveX = -0.1
+ballMoveX = -0.1    # movement
 ballMoveY = -0.1
 
 #default player positions
