@@ -45,15 +45,17 @@ window = pygame.display.set_mode((windowWidth, windowHeight), 0, 32)
 class Paddle:
     def __init__(self, x, y):
         pygame.draw.rect(window, GREEN, (x, y, paddleWidth, paddleHeight))
-        self.rect = pygame.Rect(x, y, paddleWidth, paddleHeight)    # create collider... I hope
+        self.rect = pygame.Rect(x, y, paddleWidth, paddleHeight)    # creates collider
 
 
 class Ball:
     def __init__(self, x, y):
         self.x = x  # Don't think that these do anything, but it gets angry when I delete them.
-        self.y = y  # Probably referenced later
+        self.y = y  # I probably reference them later
         pygame.draw.circle(window, GREEN, (int(ballX), int(ballY)), ballRadius)
-        self.rect = pygame.Rect(int(ballX), int(ballY), ballRadius * 2, ballRadius * 2)
+
+        #  left collider below as rect. Don't need to do circle one and circle to rect collisions not as straightforward
+        self.rect = pygame.Rect(int(ballX), int(ballY), ballRadius * 2, ballRadius * 2)  # creates collider
 
 
 # game loop
@@ -116,7 +118,7 @@ while True:
         ballMoveY = -0.1
         playerTwoScore += 1
 
-    if ball.x > 800:
+    if ball.x > windowWidth:
         ballX = 400.0
         ballY = 300.0
         ballMoveX = -0.1
