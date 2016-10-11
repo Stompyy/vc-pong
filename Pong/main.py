@@ -24,7 +24,7 @@ class Paddle:
         self.x = x
         self.y = y
         self.image = pygame.draw.rect(window, GREEN,(100, 100),0)
-
+       #penis
 class Ball:
     def __init__(self, x, y):
         self.x = x
