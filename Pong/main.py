@@ -17,10 +17,15 @@ width = 800
 ballRadius = 10
 
 playerOneY = 200
+playerOneSpawnd = False
 playerTwoY = 200
+
+
 
 window = pygame.display.set_mode((width, height), 0, 32)
 
+
+ball = pygame.draw.circle(window, WHITE, (400, 400), ballRadius, 0)
 
 class Paddle:
     def __init__(self, x, y):
@@ -32,7 +37,7 @@ class Ball:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.image = pygame.draw.circle(window, WHITE, (self.x, self.y), ballRadius, 0)
+        self.image = ball
     #     whasson
 
 
@@ -52,14 +57,18 @@ while True:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_w]:
-        playerOneY += -5
+        playerOneY += -1
     if keys[pygame.K_s]:
-        playerOneY += 5
+        playerOneY += 1
 
-    playerOne = Paddle(20, playerOneY)
+    if playerOneSpawnd == False:
+        playerOne = Paddle(20, 200)
+        playerOneSpawnd = True
 
-    window.blit(playerOne)
+    window.fill(BLACK)
 
+    pygame.draw.circle(window, WHITE, (400, playerOneY), ballRadius, 0)
+    pygame.draw.rect(window, GREEN, (20, 150 + playerOneY, 10, 50), 0)
 
 
     pygame.display.update()
