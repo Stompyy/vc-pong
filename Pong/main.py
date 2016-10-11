@@ -14,19 +14,22 @@ BLUE = (0, 0, 255)
 height = 600
 width = 800
 
+ballRadius = 10
+
 window = pygame.display.set_mode((width, height), 0, 32)
 
 
 
-class ball:
+class Ball:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        # self.image = pygame.draw.
+        self.image = pygame.draw.circle(WHITE, WHITE, (self.x, self.y), ballRadius, 0)
 
     def wallBounce(self, incomingY):
         self.y = - incomingY
         return self.y
+
 
 
 while True:
