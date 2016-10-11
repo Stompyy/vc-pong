@@ -28,7 +28,8 @@ class Ball:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.image = pygame.draw.circle(WHITE, WHITE, (self.x, self.y), ballRadius, 0)
+        self.image = pygame.draw.circle(window, WHITE, (self.x, self.y), ballRadius, 0)
+    #     whasson
 
 
     def wallBounce(self, incomingY):
