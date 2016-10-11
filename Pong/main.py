@@ -19,12 +19,17 @@ ballRadius = 10
 window = pygame.display.set_mode((width, height), 0, 32)
 
 
+class Paddle:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 class Ball:
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.image = pygame.draw.circle(WHITE, WHITE, (self.x, self.y), ballRadius, 0)
+
 
     def wallBounce(self, incomingY):
         self.y = - incomingY
@@ -37,4 +42,5 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+
     pygame.display.update()
