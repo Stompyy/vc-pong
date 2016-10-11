@@ -16,6 +16,9 @@ width = 800
 
 ballRadius = 10
 
+playerOneY = 200
+playerTwoY = 200
+
 window = pygame.display.set_mode((width, height), 0, 32)
 
 
@@ -23,6 +26,7 @@ class Paddle:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.image = pygame.draw.rect(window, GREEN, (150,10, 50, 20), 0)
 
 class Ball:
     def __init__(self, x, y):
@@ -38,10 +42,24 @@ class Ball:
 
 
 
+
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_w]:
+        playerOneY += -5
+    if keys[pygame.K_s]:
+        playerOneY += 5
+
+    playerOne = Paddle(20, playerOneY)
+
+    window.blit(playerOne)
+
+
 
     pygame.display.update()
