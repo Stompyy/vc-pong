@@ -17,12 +17,15 @@ width = 800
 window = pygame.display.set_mode((width, height), 0, 32)
 
 
-
-class ball:
+class Paddle:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        # self.image = pygame.draw.
+
+class Ball:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
     def wallBounce(self, incomingY):
         self.y = - incomingY
@@ -34,4 +37,5 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+
     pygame.display.update()
